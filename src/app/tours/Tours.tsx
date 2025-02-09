@@ -20,7 +20,7 @@ const Tours = ({ tours, error }: ToursProps) => {
                 <td>{ActivityType[tour.ActivityType]}</td>
                 <td>
                     <div>
-                        <Link href={`/tourdetails/${tour.Id}`} className="link-button">Show</Link>
+                        <Link href={`/tourdetails/${tour.Id}`} className="btn btn-sm btn-outline-secondary">Show</Link>
                     </div>
                 </td>
             </tr>
