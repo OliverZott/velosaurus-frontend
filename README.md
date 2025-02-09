@@ -12,12 +12,23 @@
 
 ![Project Structure](velosaurus_architecture.jpg)
 
-## Run & Debug App locally
+## Prerequisites
 
-- `npm install` first time after cloning
-- `npm start`
-- `Ctrl + Shift * P` -> **Toggle Auto Attach Smart**
-- `F5` - *Launch Edge against Localhost*
+- Nodejs
+- `npm install` first time after cloning to install dependencies
+
+## Run and Debug
+
+- First, run the development server:
+
+    ```bash
+    npm run dev  # run the development server
+    npm run lint # run the linter
+    ```
+
+- To debug the server, run the `Next.js: debug full stack` launch configuration in VSCode (no specific toggle Auto Attach needed)
+
+- Check result under <http://localhost:3000>
 
 ## Run docker container
 
@@ -33,6 +44,47 @@ Resources:
 - API: <https://portal.azure.com/>
   - <https://velosaurus-api.azurewebsites.net/api/tour>
 - DB: <https://cloud.mongodb.com/>
+
+## Structure
+
+best practice?:
+
+```bash
+src/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── dashboard/
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   └── settings/
+│       ├── layout.tsx
+│       └── page.tsx
+├── components/
+│   └── Header.tsx
+├── styles/
+│   ├── globals.css
+│   └── Home.module.css
+├── utils/
+│   └── helpers.ts
+```
+
+old school?
+
+```bash
+├── src/
+│   ├── pages/
+│   │   ├── api/
+│   │   │   └── hello.ts
+│   │   └── index.tsx
+│   ├── components/
+│   │   └── ExampleComponent.tsx
+│   ├── styles/
+│   │   ├── globals.css
+│   │   └── Home.module.css
+│   └── utils/
+│       └── helpers.ts
+```
 
 ## Project Setup
 
@@ -123,3 +175,9 @@ Debug in container (copilot answer):
             ]
         }
         ```
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
