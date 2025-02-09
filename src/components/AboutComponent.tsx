@@ -1,9 +1,12 @@
-import { Person } from "../entity/Person";
+import { Person } from "@/entitiy/Person";
+import React from 'react';
+
 
 // Accessing Props Directly
 export function AboutComponent(prop: { person: Person }) {
 
     const { name, age, profession } = prop.person;
+
     return (
         <div>
             <h2>{name}</h2>
