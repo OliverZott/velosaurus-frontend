@@ -1,7 +1,10 @@
-import { AboutComponent } from "../components/AboutComponent"
-import { Person } from "../entity/Person";
+import { AboutComponent } from '@/components/AboutComponent';
+import { Person } from '@/entitiy/Person';
+import React from 'react';
 
-export function About() {
+
+// default export used in this example
+const AboutPage = () => {
 
 
     const personData: Person = {
@@ -16,3 +19,5 @@ export function About() {
         </div>
     )
 }
+
+export default AboutPage;
