@@ -10,13 +10,20 @@ const Tours = () => {
     // const url = "https://velosaurus-api.azurewebsites.net/api/tour";
 
     const [tours, setTours] = useState<Tour[]>([]);
+    const [error, setError] = useState<string | null>(null);
 
 
     useEffect(() => {
         (
             async () => {
-                const { data } = await axios.get(url);
-                setTours(data.Items);
+                try {
+                    const { data } = await axios.get(url);
+                    setTours(data.Items);
+                    setError(null); // Clear previous errors
+                }
+                catch (err) {
+                    setError("Unable to retrive data");
+                }
             }
         )()
     }, []);
@@ -45,7 +52,7 @@ const Tours = () => {
     return (
         <div>
             <h1>Tours</h1>
-
+            {error && <div className="alert alert-danger">{error}</div>}
             <div className="table-responsive">
                 <table className="table table-striped table-sm">
                     <thead>
