@@ -10,7 +10,10 @@
                 "--inspect"
             ],
             "skipFiles": [
-                "<node_internals>/**"
+                "<node_internals>/**",
+                "${workspaceFolder}/node_modules/**",
+                "**/next/dist/**",
+                "**/webpack/**"
             ],
             "serverReadyAction": {
                 "action": "debugWithEdge",
