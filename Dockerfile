@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3000
+RUN npm run build
 
-# RUN ["npm", "start"]
+EXPOSE 3000
