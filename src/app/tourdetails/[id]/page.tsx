@@ -3,27 +3,34 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "next/navigation";
-import { Tour } from "@/entitiy/Tour";
+import { mapTourFromApi, Tour } from "@/entitiy/Tour";
+import { ACCTIVITY_API_URL } from "@/utils/constants";
 
 const TourDetails = () => {
+
     const params = useParams();
-    const { id } = params;
+    const id = params?.id as string;
+    const url = `${ACCTIVITY_API_URL}/${id}`;
+
     const [tour, setTour] = useState<Tour | null>(null);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
+        console.log("id:", id, "url:", url); // Add this line
         if (id) {
             (async () => {
                 try {
-                    const { data } = await axios.get(`https://localhost:7019/api/activity/${id}`);
-                    setTour(data);
+                    const { data } = await axios.get(url);
+                    console.log("data:", data); // Add this line
+                    const mappedTour = mapTourFromApi(data);
+                    setTour(mappedTour);
                 } catch (error) {
                     console.error("Unable to retrieve tour details:", error);
                     setError("Unable to retrieve tour details");
                 }
             })();
         }
-    }, [id]);
+    }, [id, url]);
 
     if (error) {
         return <div className="alert alert-danger">{error}</div>;
