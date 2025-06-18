@@ -28,16 +28,18 @@
 
 - To debug the server, run the `Next.js: debug full stack` launch configuration in VSCode (no specific toggle Auto Attach needed)
 
-- Check result under <http://localhost:3000>
+- Check <http://localhost:3000>
 
 ## Run docker container
 
 - `docker build --tag '<image-tag>' .`
 - `docker run -p 3000:3000 -e NODE_ENV=production <image-tag> npm start`
+
 OR
-- `docker compose up`
-- `docker compose down`
+
 - `docker compose build` rebuild image, if changes in code
+- `docker compose up` or `docker compose up --build`
+- `docker compose down`
 
 Resources:
 

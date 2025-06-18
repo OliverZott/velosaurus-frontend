@@ -4,8 +4,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+          NEXT_PUBLIC_ACCTIVITY_API_URL: http://host.docker.internal:8000/api/activity
+          NEXT_PUBLIC_LOCATION_API_URL: http://host.docker.internal:8000/api/location
     command: npm run start
     ports:
       - "3000:3000"
-    environment:
-      - NODE_ENV=production
+      - "9229:9229"

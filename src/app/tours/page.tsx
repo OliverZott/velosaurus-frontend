@@ -1,4 +1,5 @@
 // Setup for SSR (server side rendering)  where page.tsx does the api request and Tours renders it on client side
+//     - but no consoloe log in browser possible, because its run on server!
 
 import { mapTourFromApi, Tour } from "@/entitiy/Tour";
 import Tours from "./Tours";
@@ -9,6 +10,7 @@ import { getActivityApiUrl, setPageSize } from "@/utils/constants";
 const ToursPage = async () => {
     setPageSize(10);
     const url = getActivityApiUrl(1);
+    console.log(`Activity API URL: ${url}`);
 
     let tours: Tour[] = [];
     let errorMessage: string | null = null;

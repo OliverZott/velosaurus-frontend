@@ -16,12 +16,12 @@ const TourDetails = () => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        console.log("id:", id, "url:", url); // Add this line
+        console.log("id:", id, "url:", url);
         if (id) {
             (async () => {
                 try {
                     const { data } = await axios.get(url);
-                    console.log("data:", data); // Add this line
+                    console.log("data:", data);
                     const mappedTour = mapTourFromApi(data);
                     setTour(mappedTour);
                 } catch (error) {

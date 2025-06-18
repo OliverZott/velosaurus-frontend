@@ -1,5 +1,6 @@
-export const LOCATION_API_URL = "http://localhost:8000/api/location";
-export const ACCTIVITY_API_URL = "http://localhost:8000/api/activity";
+export const ACCTIVITY_API_URL = process.env.NEXT_PUBLIC_ACCTIVITY_API_URL;
+export const LOCATION_API_URL = process.env.NEXT_PUBLIC_LOCATION_API_URL;
+
 let PAGE_SIZE = 10;
 
 export function setPageSize(size: number) {
@@ -7,5 +8,5 @@ export function setPageSize(size: number) {
 }
 
 export function getActivityApiUrl(pageNumber: number = 1) {
-    return `http://localhost:8000/api/activity?pageNumber=${pageNumber}&pageSize=${PAGE_SIZE}`;
+    return `${ACCTIVITY_API_URL}?pageNumber=${pageNumber}&pageSize=${PAGE_SIZE}`;
 }
