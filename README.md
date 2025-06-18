@@ -33,7 +33,7 @@
 ## Run docker container
 
 - `docker build --tag '<image-tag>' .`
-- `docker run -p 3000:3000 <image-tag> npm start`
+- `docker run -p 3000:3000 -e NODE_ENV=production <image-tag> npm start`
 OR
 - `docker compose up`
 - `docker compose down`
