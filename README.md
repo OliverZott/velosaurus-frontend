@@ -32,6 +32,8 @@
 
 ## Run docker container
 
+[Multi environment docker container](https://github.com/vercel/next.js/tree/canary/examples/with-docker-multi-env)
+
 - `docker build --tag '<image-tag>' .`
 - `docker run -p 3000:3000 -e NODE_ENV=production <image-tag> npm start`
 
@@ -40,6 +42,8 @@ OR
 - `docker compose build` rebuild image, if changes in code
 - `docker compose up` or `docker compose up --build`
 - `docker compose down`
+
+Using multistage reduced image size from 2.02 GB to 1.31 GB.
 
 Resources:
 
