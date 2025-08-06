@@ -17,7 +17,7 @@ const ToursPage = async () => {
 
     try {
         const response = await axiosInstance.get(url);
-        tours = response.data.items.map(mapTourFromApi);
+        tours = response.data.map(mapTourFromApi);
     } catch (error) {
         console.error("Unable to retrieve data:", error);
         if (error instanceof Error) {

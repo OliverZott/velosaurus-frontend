@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "next/navigation";
-import { mapTourFromApi, Tour } from "@/entitiy/Tour";
+import { mapTourDetailFromApi, TourDetail } from "@/entitiy/Tour";
 import { ACCTIVITY_API_URL } from "@/utils/constants";
 
 const TourDetails = () => {
@@ -12,7 +12,7 @@ const TourDetails = () => {
     const id = params?.id as string;
     const url = `${ACCTIVITY_API_URL}/${id}`;
 
-    const [tour, setTour] = useState<Tour | null>(null);
+    const [tour, setTour] = useState<TourDetail | null>(null);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const TourDetails = () => {
                 try {
                     const { data } = await axios.get(url);
                     console.log("data:", data);
-                    const mappedTour = mapTourFromApi(data);
+                    const mappedTour = mapTourDetailFromApi(data);
                     setTour(mappedTour);
                 } catch (error) {
                     console.error("Unable to retrieve tour details:", error);
