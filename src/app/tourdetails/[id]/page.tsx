@@ -7,8 +7,9 @@ import axiosInstance from "@/utils/axisoInstance";
 import { ACCTIVITY_API_URL } from "@/utils/constants";
 
 
-export default async function Page({ params }: { params: { id: string } }) {
-    const { id } = params;
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+    // Await the params to get the id
+    const { id } = await params;
     const url = `${ACCTIVITY_API_URL}/${id}`;
 
     const { data } = await axiosInstance.get(url);
