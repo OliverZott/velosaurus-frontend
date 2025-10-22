@@ -19,7 +19,7 @@ export default function Page() {
                             <div className="mt-4">
                                 <h4 className="h4 mb-3">My Journey</h4>
                                 <p className="text-muted">
-                                    I'm passionate about building great software and solving complex problems.
+                                    I&apos;m passionate about building great software and solving complex problems.
                                     With experience in full-stack development, I love creating efficient and
                                     user-friendly applications.
                                 </p>
