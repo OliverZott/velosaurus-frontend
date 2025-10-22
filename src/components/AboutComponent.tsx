@@ -1,29 +1,26 @@
 import { Person } from "@/entitiy/Person";
-import React from 'react';
 
+interface AboutComponentProps {
+    person: Person;
+}
 
-// Accessing Props Directly
-export function AboutComponent(prop: { person: Person }) {
-
-    const { name, age, profession } = prop.person;
+export function AboutComponent({ person }: AboutComponentProps) {
+    const { name, age, profession, description } = person;
 
     return (
-        <div>
-            <h2>{name}</h2>
-            <ul>
-                <li>Age: {age}</li>
-                <li>Profession: {profession}</li>
-
-            </ul>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-                voluptatum, voluptate, quibusdam, quia voluptas quod quos
-                voluptatibus quae voluptatem doloribus quidem? Quisquam
-                voluptatum, voluptate, quibusdam, quia voluptas quod quos
-                voluptatibus quae voluptatem doloribus quidem?
-            </p>
+        <div className="card h-100">
+            <div className="card-body">
+                <h4 className="card-title">{name}</h4>
+                <h6 className="card-subtitle mb-2 text-muted">{profession}</h6>
+                <p className="card-text">
+                    <small className="text-muted">Age: {age}</small>
+                </p>
+                {description && (
+                    <p className="card-text mt-3">{description}</p>
+                )}
+            </div>
         </div>
-    )
+    );
 }
 
 

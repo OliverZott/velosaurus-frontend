@@ -1,14 +1,14 @@
-import React from 'react';
-
 import { ReactNode } from 'react';
 
-const SettingsLayout = ({ children }: { children: ReactNode }) => {
+export default function Layout({ children }: { children: ReactNode }) {
     return (
-        <div>
-            <h2>Settings</h2>
-            {children}
-        </div>
+        <section className="settings-section">
+            <header className="settings-header">
+                <h2>Settings</h2>
+            </header>
+            <main className="settings-content">
+                {children}
+            </main>
+        </section>
     );
-};
-
-export default SettingsLayout;
+}

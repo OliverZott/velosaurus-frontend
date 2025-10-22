@@ -1,11 +1,7 @@
-import React from 'react';
-
-const SettingsPage = () => {
+export default function Page() {
     return (
-        <div>
+        <article className="settings-page">
             <p>This is the settings page.</p>
-        </div>
+        </article>
     );
-};
-
-export default SettingsPage;
+}
