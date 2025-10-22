@@ -64,7 +64,18 @@ Update Dependecies:
 - `npm install <package>@latest`
 - Reactupdate: `npm install react react-dom @types/react @types/react-dom`
 
-## Next steps
+## TODO
+
+- parse/use error object from API, e.g.:
+
+   ```json
+   {
+  "title": "Item Not Found.",
+  "status": 404,
+  "detail": "No Velosaurus.DatabaseManager.Models.Activity item found with id 1234.",
+  "instance": "/api/Activity/1234"
+  }
+  ```
 
 - Parse distance / DateTime ...
 - Logging & Exception Handling
