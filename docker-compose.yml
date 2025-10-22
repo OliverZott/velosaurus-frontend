@@ -1,15 +1,14 @@
 services:
-
-  velosaurus-fronten:
+  velosaurus-frontend:
     build:
       context: .
       dockerfile: Dockerfile
       args:
-          # asp.net core web api use port 8000
-          # nodejs express api use port 3000
-          # NEXT_PUBLIC_ACCTIVITY_API_URL: http://velosaurus-backend:3000/api/activity
-          NEXT_PUBLIC_ACCTIVITY_API_URL: http://host.docker.internal:3000/api/activity
-          NEXT_PUBLIC_LOCATION_API_URL: http://host.docker.internal:3000/api/location
+        # asp.net core web api use port 7019 (local backend) or 8000 (dockerized backend)
+        # nodejs express api use port 3000
+        # NEXT_PUBLIC_ACCTIVITY_API_URL: http://velosaurus-backend:3000/api/activity
+        NEXT_PUBLIC_ACCTIVITY_API_URL: http://host.docker.internal:8000/api/activity
+        NEXT_PUBLIC_LOCATION_API_URL: http://host.docker.internal:8000/api/location
     image: velosaurus-frontend
     container_name: velosaurus-frontend
     command: npm run start

@@ -1,0 +1,55 @@
+services:
+  # Database
+  velosaurus-db:
+    image: postgres
+    restart: always
+    container_name: velosaurus-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=velosaurus
+    ports:
+      - "5433:5432" # only exposing to port 5433 on host, api service still listens to internal 5432 port
+    volumes:
+      - velosaurus-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "db_prod"]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+
+  # REST API
+  velosaurus-api:
+    image: dasmuesli/velosaurus-backend
+    container_name: velosaurus-api
+    depends_on:
+      velosaurus-db:
+        condition: service_healthy
+    ports:
+      - "8000:6789" # 8000 is the port on host machine, 6789 is the port inside container
+    environment:
+      - ASPNETCORE_URLS=http://+:6789 # default asp.net core port is 8080 (since net8), other ports has to be specified here
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__ActivityDbConnectionString=Host=velosaurus-db; Database=velosaurus; Port=5432; User Id=postgres; Password=password
+      - Serilog:WriteTo:0:Args:pathFormat=/logs/log-{Date}.txt
+
+  velosaurus-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # asp.net core web api use port 8000
+        # nodejs express api use port 3000
+        # NEXT_PUBLIC_ACCTIVITY_API_URL: http://velosaurus-backend:3000/api/activity
+        NEXT_PUBLIC_ACCTIVITY_API_URL: http://host.docker.internal:8000/api/activity
+        NEXT_PUBLIC_LOCATION_API_URL: http://host.docker.internal:8000/api/location
+    image: velosaurus-frontend
+    container_name: velosaurus-frontend
+    command: npm run start
+    ports:
+      - "3001:3042"
+      - "9229:9229"
+
+volumes:
+  velosaurus-data:
+    name: velosaurus-data
