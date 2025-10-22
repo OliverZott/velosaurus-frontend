@@ -9,6 +9,11 @@ export default async function Page({ params }: { params: { id: string } }) {
 
     try {
         const { data } = await axiosInstance.get(url);
+
+        if (!data) {
+            throw new Error('Tour not found');
+        }
+
         const tour = mapTourDetailFromApi(data);
 
         return (
@@ -17,11 +22,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             </div>
         );
     } catch (error) {
-        console.error("Unable to retrieve tour details:", error);
-        return (
-            <div className="alert alert-danger">
-                Unable to retrieve tour details
-            </div>
-        );
+        // This error will be caught by error.tsx
+        throw new Error(error instanceof Error ? error.message : 'Failed to load tour');
     }
 }
