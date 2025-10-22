@@ -85,6 +85,8 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+---
+
 # Remarks
 
 ## HTML
@@ -98,7 +100,7 @@ Practical rules of thumb
 
 ## NEXT.js
 
-Structure:
+## Structure
 
 ```bash
 src/
@@ -124,3 +126,41 @@ app/: Contains the main application files and routes. (server code)
 components/: Contains reusable React components. (client code)
 styles/: Contains global and module-specific CSS files. (client code)
 utils/: Contains utility functions and helpers. (client code)
+
+## Server vs CLient side rendering
+
+default is server side rendering in Next.js 13 app directory. To use client side rendering, add "use client" at the top of the file.
+
+Key differences:
+
+- Data Fetching:
+  - Client Component: Uses useState/useEffect to manage asynchronous data fetching in the browser
+  - Server Component: Fetches data directly on the server before sending HTML to browser
+
+- State Management:
+  - Client Component: Needs useState to manage loading/error/data states as they change over time
+  - Server Component: No state management needed because data is ready when component renders
+
+- Performance:
+  - Client Component:
+    - Initial HTML is empty
+    - Shows loading state
+    - Makes API request from browser
+    - Updates DOM when data arrives
+  - Server Component:
+    - Data is fetched on server
+    - HTML arrives with data already in place
+    - No loading state needed
+    - Better performance and SEO
+
+- Error Handling:
+  - Client Component: Needs state to manage errors (setError)
+  - Server Component: Handles errors directly in try/catch
+
+The Server Component approach is typically better because:
+
+- Faster initial page load
+- Better SEO (search engines see complete content)
+- Less client-side JavaScript
+- No loading states needed
+- Simpler code (no state management)
