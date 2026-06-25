@@ -1,5 +1,5 @@
 import { AboutComponent } from '@/components/AboutComponent';
-import { Person } from '@/entitiy/Person';
+import { Person } from '@/entity/Person';
 
 export default function Page() {
     const personData: Person = {

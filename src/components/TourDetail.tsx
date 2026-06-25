@@ -1,4 +1,4 @@
-import { TourDetail as TourDetailType } from "@/entitiy/Tour";
+import { TourDetail as TourDetailType } from "@/entity/Tour";
 
 interface TourDetailProps {
     tour: TourDetailType;

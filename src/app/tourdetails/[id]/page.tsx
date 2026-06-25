@@ -1,7 +1,7 @@
 // Any errors here will automatically be caught by error.tsx
 
 
-import { mapTourDetailFromApi } from "@/entitiy/Tour";
+import { mapTourDetailFromApi } from "@/entity/Tour";
 import { TourDetail } from "@/components/TourDetail";
 import axiosInstance from "@/utils/axisoInstance";
 import { ACCTIVITY_API_URL } from "@/utils/constants";

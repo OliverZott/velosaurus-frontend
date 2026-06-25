@@ -5,7 +5,7 @@ import https from 'https';
 
 const axiosInstance = axios.create({
     httpsAgent: new https.Agent({
-        rejectUnauthorized: false, // Ignore self-signed certificate
+        rejectUnauthorized: process.env.NODE_ENV === 'production', // Only ignore self-signed certs in dev
     }),
 });
 

@@ -1,4 +1,4 @@
-import { Person } from "@/entitiy/Person";
+import { Person } from "@/entity/Person";
 
 interface AboutComponentProps {
     person: Person;

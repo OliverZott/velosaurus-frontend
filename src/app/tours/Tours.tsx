@@ -1,6 +1,6 @@
 "use client";
 
-import { ActivityType, Tour } from "@/entitiy/Tour";
+import { ActivityType, Tour } from "@/entity/Tour";
 import Link from "next/link";
 
 interface ToursProps {

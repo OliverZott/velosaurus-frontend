@@ -1,7 +1,7 @@
 // Setup for SSR (server side rendering)  where page.tsx does the api request and Tours renders it on client side
 //     - but no consoloe log in browser possible, because its run on server!
 
-import { mapTourFromApi, Tour } from "@/entitiy/Tour";
+import { mapTourFromApi, Tour } from "@/entity/Tour";
 import Tours from "./Tours";
 import axiosInstance from "@/utils/axisoInstance";
 import { getActivityApiUrl, setPageSize } from "@/utils/constants";
