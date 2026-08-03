@@ -1,23 +1,21 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
+import Link from "next/link";
 
 const Header = () => {
-    return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-3">
-            <div className="container">
-                <Link href="/" className="navbar-brand">
-                    <button
-                        style={{ width: "4rem", height: "4rem", position: "relative" }}
-                        className="btn btn-outline-primary rounded-circle"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 1000 1000"
-                            fill="currentColor"
-                        >
-                            <path d="M941.4,261.9c-2.8-5.9-11.2-14-21.8-22.9c-10.6-9-19-5.6-19-5.6c-75,3.1-90.1,29.7-117.8,74.4
+  return (
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-3">
+      <div className="container">
+        <Link href="/" className="navbar-brand">
+          <button
+            type="button"
+            style={{ width: "4rem", height: "4rem", position: "relative" }}
+            className="btn btn-outline-primary rounded-circle"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" fill="currentColor">
+              <title>Velosaurus logo</title>
+              <path
+                d="M941.4,261.9c-2.8-5.9-11.2-14-21.8-22.9c-10.6-9-19-5.6-19-5.6c-75,3.1-90.1,29.7-117.8,74.4
                             c-27.7,44.8-34.1,81.7-51.2,118s-56.8,57.1-71.6,54.3s-32.7-9.5-68-23.2s-65.5-12.6-101.5,0s-100.7,51.7-144.6,79.4
                             c-43.9,27.7-94.5,12.3-163.4,18.5c-68.8,6.2-113.8,47.6-121.1,72.2c-7.3,24.6-7.6,56.8,39.4,81.1c47,24.3,108.8,7.6,132-3.9
                             c23.2-11.5,55.4-31.9,86.4-13.7c31,18.2,7.3,44.2-7.3,56.5c-14.5,12.3-34.1,29.9-4.2,14c29.9-15.9,57.9-52.9,31.3-80.7
@@ -29,18 +27,23 @@ const Header = () => {
                             s1.9,12.3,1.1,16.4c-0.7,4.1,0,7.8,7.8,6.7c7.8-1.1,25.7-2.2,32.4-3.7c6.7-1.5,4.5-5.6,4.5-5.6c6-1.1,11.6-2.2,9-5.2
                             c-2.6-3-11.6-11.9-11.9-13.8c-0.4-1.9-1.5-114.5-1.5-114.5c5.2-4.1,19.4-16.8,22.8-23.5c3.4-6.7,9.7-16.4,43.6-44
                             c33.9-27.6,49.3-76.3,55.5-106.8c6.2-30.5,2.2-50.1,26.3-97.9c24.1-47.8,45-55.1,56.2-60.4s26.3-5.3,29.4-2.8
-                            c3.1,2.5,29.9,2.8,37.2,3.1C938.6,273.6,944.2,267.8,941.4,261.9z"/>
-                        </svg>
-                    </button>
-                </Link>
+                            c3.1,2.5,29.9,2.8,37.2,3.1C938.6,273.6,944.2,267.8,941.4,261.9z"
+              />
+            </svg>
+          </button>
+        </Link>
 
-                <div className="navbar-nav me-auto">
-                    <Link href="/about" className="nav-link">About</Link>
-                    <Link href="/tours" className="nav-link">Tours</Link>
-                </div>
-            </div>
-        </nav>
-    )
+        <div className="navbar-nav me-auto">
+          <Link href="/about" className="nav-link">
+            About
+          </Link>
+          <Link href="/tours" className="nav-link">
+            Tours
+          </Link>
+        </div>
+      </div>
+    </nav>
+  );
 };
 
 export default Header;

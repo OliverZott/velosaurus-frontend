@@ -1,28 +1,28 @@
 {
-    "name": "velosaurus-frontend",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "next dev --turbopack",
-        "build": "next build",
-        "start": "next start -p 3042",
-        "lint": "biome lint .",
-        "lint:fix": "biome lint . --write",
-        "format": "biome format . --write",
-        "format:check": "biome format ."
-    },
-    "dependencies": {
-        "axios": "^1.19.0",
-        "bootstrap": "^5.3.8",
-        "next": "^16.2.12",
-        "react": "^19.2.8",
-        "react-dom": "^19.2.8"
-    },
-    "devDependencies": {
-        "@biomejs/biome": "^2.3.4",
-        "@types/node": "^26.1.2",
-        "@types/react": "^19.2.18",
-        "@types/react-dom": "^19.2.4",
-        "typescript": "^7.0.2"
-    }
+  "name": "velosaurus-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start -p 3042",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint . --write",
+    "format": "biome format . --write",
+    "format:check": "biome format ."
+  },
+  "dependencies": {
+    "axios": "^1.19.0",
+    "bootstrap": "^5.3.8",
+    "next": "^16.2.12",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.4",
+    "@types/node": "^26.1.2",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "typescript": "^7.0.2"
+  }
 }
