@@ -24,6 +24,7 @@
     ```bash
     npm run dev  # run the development server
     npm run lint # run the linter
+    npm run format:check # check formatting
     ```
 
 - To debug the server, run the `Next.js: debug full stack` launch configuration in VSCode (no specific toggle Auto Attach needed)
@@ -50,6 +51,21 @@ Resources:
 - API: <https://portal.azure.com/>
   - <https://velosaurus-api.azurewebsites.net/api/tour>
 - DB: <https://cloud.mongodb.com/>
+
+## Code Quality (Biome)
+
+- This project uses **Biome** for both linting and formatting.
+- Main config: `biome.json`
+- Common commands:
+
+  ```bash
+  npm run lint         # lint checks
+  npm run lint:fix     # apply safe lint fixes
+  npm run format       # format files in place
+  npm run format:check # verify formatting
+  ```
+
+- ESLint and Prettier are intentionally not used in this repo.
 
 ## Project Setup
 
@@ -85,10 +101,13 @@ Update Dependecies:
 
 ## npm Commands
 
-- `npm start`
-- `npm test`
+- `npm run dev`
 - `npm run build`
-- `npm run eject`
+- `npm start`
+- `npm run lint`
+- `npm run lint:fix`
+- `npm run format`
+- `npm run format:check`
 
 ## Deploy on Vercel
 
