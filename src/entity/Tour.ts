@@ -1,3 +1,5 @@
+import type { Location } from "./Location";
+
 export interface Tour {
   Id: string;
   Name: string;
@@ -19,7 +21,8 @@ export interface TourDetail {
 }
 
 // sent as name by the api, must match backend enum Velosaurus.DatabaseManager.Models.ActivityType
-export type ActivityType = "Bike" | "Nordic" | "Ski" | "Hiking";
+export const ACTIVITY_TYPES = ["Bike", "Nordic", "Ski", "Hiking"] as const;
+export type ActivityType = (typeof ACTIVITY_TYPES)[number];
 
 interface ApiTour {
   id: string | number;

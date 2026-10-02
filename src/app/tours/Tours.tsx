@@ -31,6 +31,11 @@ const Tours = ({ tours, error }: ToursProps) => {
 
   return (
     <div>
+      <div className="d-flex justify-content-end mb-3">
+        <Link href="/tours/new" className="btn btn-primary">
+          + Add tour
+        </Link>
+      </div>
       {error && <div className="alert alert-danger">{error}</div>}
       <div className="table-responsive">
         <table className="table table-striped table-sm">
