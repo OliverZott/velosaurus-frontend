@@ -9,13 +9,7 @@ RUN npm install
 
 COPY . .
 
-# Pass build-time environment variables
-ARG NEXT_PUBLIC_ACCTIVITY_API_URL
-ARG NEXT_PUBLIC_LOCATION_API_URL
-ENV NEXT_PUBLIC_ACCTIVITY_API_URL=$NEXT_PUBLIC_ACCTIVITY_API_URL
-ENV NEXT_PUBLIC_LOCATION_API_URL=$NEXT_PUBLIC_LOCATION_API_URL
-
-# Build the Next.js app
+# Build the Next.js app (api urls are not needed here, they are read at runtime)
 RUN npm run build
 
 # Stage 2: Production
@@ -29,9 +23,8 @@ RUN npm install --omit=dev
 COPY --from=builder /app/.next ./.next
 # COPY --from=builder /app/public ./public
 
-# Set environment variables again for runtime (if needed)
-ENV NEXT_PUBLIC_ACCTIVITY_API_URL=$NEXT_PUBLIC_ACCTIVITY_API_URL
-ENV NEXT_PUBLIC_LOCATION_API_URL=$NEXT_PUBLIC_LOCATION_API_URL
+# Runtime environment variables (set via docker run -e / compose environment):
+# ACTIVITY_API_URL, LOCATION_API_URL
 
 EXPOSE 3042
 

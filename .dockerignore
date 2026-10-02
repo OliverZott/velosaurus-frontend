@@ -7,3 +7,6 @@ README.md
 .next
 docker
 .git
+# local env files (may contain secrets), keep only the sample
+.env*
+!.env.sample

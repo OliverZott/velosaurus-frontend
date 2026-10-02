@@ -3,12 +3,12 @@
 import { mapTourDetailFromApi } from "@/entity/Tour";
 import { TourDetail } from "@/components/TourDetail";
 import axiosInstance from "@/utils/axisoInstance";
-import { ACCTIVITY_API_URL } from "@/utils/constants";
+import { ACTIVITY_API_URL } from "@/utils/constants";
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   // Await the params to get the id
   const { id } = await params;
-  const url = `${ACCTIVITY_API_URL}/${id}`;
+  const url = `${ACTIVITY_API_URL}/${id}`;
 
   const { data } = await axiosInstance.get(url);
   const tour = mapTourDetailFromApi(data);

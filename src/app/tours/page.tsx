@@ -6,6 +6,9 @@ import Tours from "./Tours";
 import axiosInstance from "@/utils/axisoInstance";
 import { getActivityApiUrl, setPageSize } from "@/utils/constants";
 
+// render on every request, otherwise next build prerenders this page once (calling the api at build time)
+export const dynamic = "force-dynamic";
+
 const ToursPage = async () => {
   setPageSize(10);
   const url = getActivityApiUrl(1);
