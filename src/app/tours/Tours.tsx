@@ -1,6 +1,6 @@
 "use client";
 
-import { ActivityType, type Tour } from "@/entity/Tour";
+import type { Tour } from "@/entity/Tour";
 import Link from "next/link";
 
 interface ToursProps {
@@ -17,7 +17,7 @@ const Tours = ({ tours, error }: ToursProps) => {
         <td>{tour.Date}</td>
         <td>{tour.Length}</td>
         <td>{tour.AltitudeGain}</td>
-        <td>{ActivityType[tour.ActivityType]}</td>
+        <td>{tour.ActivityType}</td>
         <td>
           <div>
             <Link href={`/tourdetails/${tour.Id}`} className="btn btn-sm btn-outline-secondary">

@@ -18,11 +18,8 @@ export interface TourDetail {
   Location?: Location;
 }
 
-export enum ActivityType {
-  MountainBike,
-  Nordic,
-  Ski,
-}
+// sent as name by the api, must match backend enum Velosaurus.DatabaseManager.Models.ActivityType
+export type ActivityType = "Bike" | "Nordic" | "Ski" | "Hiking";
 
 interface ApiTour {
   id: string | number;
